@@ -1,216 +1,205 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Saga Guardiões - 6º Ano | SEDU-ES</title>
-  <style>
-    :root {
-      --forest-950: #0b271c; --forest-900: #143d2b; --forest-700: #236347;
-      --cream: #fff8e8; --paper: #fffdf7; --ink: #17352a; --muted: #52675f;
-      --ochre: #d88b28; --gold: #f6c453; --indigo: #315a8a; --terracotta: #b95038;
-      --success: #197345; --error: #a52d25; --line: #d9dccd;
-      --shadow: 0 14px 40px rgba(20, 61, 43, .15);
-    }
-    * { box-sizing: border-box; }
-    body { margin: 0; min-height: 100vh; color: var(--ink); background: var(--cream); font-family: system-ui, -apple-system, sans-serif; line-height: 1.55; }
-    button, input { font: inherit; }
-    button { cursor: pointer; }
-    .topbar { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; padding: .65rem 2rem; color: #fff; background: var(--forest-950); border-bottom: 4px solid var(--ochre); }
-    .brand { display: flex; align-items: center; gap: .7rem; color: inherit; text-decoration: none; font-weight: bold; }
-    .brand-mark { display: grid; place-items: center; width: 36px; height: 36px; color: var(--forest-950); background: var(--gold); border-radius: 8px; }
-    .status { display: flex; gap: .75rem; font-size: .85rem; }
-    .status span { padding: .4rem .7rem; background: rgba(255,255,255,.1); border-radius: 999px; }
-    .screen { display: none; padding: 2rem; max-width: 1000px; margin: 0 auto; }
-    .screen.active { display: block; }
-    .hero-screen { text-align: center; padding-top: 4rem; }
-    h1 { font-size: 2.8rem; color: var(--forest-950); margin-bottom: .5rem; }
-    .lead { color: var(--muted); font-size: 1.2rem; max-width: 600px; margin: 0 auto 2rem; }
-    #playerName { width: 100%; max-width: 400px; padding: .8rem 1rem; border: 2px solid #98a89f; border-radius: 12px; font-size: 1rem; margin-bottom: 1rem; }
-    .primary-button { color: #fff; background: var(--forest-700); border: none; padding: .8rem 1.6rem; border-radius: 12px; font-weight: bold; font-size: 1rem; box-shadow: 0 4px 0 var(--forest-950); }
-    .primary-button:hover { transform: translateY(-2px); }
-    .phase-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 2rem; }
-    .phase-card { padding: 1.5rem; background: var(--paper); border: 2px solid var(--line); border-top: 6px solid var(--phase-color); border-radius: 16px; text-align: left; }
-    .phase-card h3 { margin: .5rem 0 .2rem; }
-    .challenge-shell { display: grid; grid-template-columns: 280px 1fr; gap: 1.5rem; margin-top: 1rem; }
-    .phase-brief { padding: 1.2rem; color: #fff; background: var(--forest-900); border-radius: 16px; }
-    .challenge-main { padding: 1.5rem; background: var(--paper); border-radius: 16px; box-shadow: var(--shadow); }
-    .context-box { padding: 1rem; background: #eef4e9; border-left: 5px solid var(--forest-700); border-radius: 8px; margin-bottom: 1.5rem; }
-    .options { display: grid; gap: .75rem; margin-top: 1rem; }
-    .option { display: flex; align-items: center; gap: .8rem; padding: 1rem; background: #fff; border: 2px solid #c8d2cb; border-radius: 12px; text-align: left; width: 100%; }
-    .option.selected { border-color: var(--indigo); background: #e8f2fb; }
-    .feedback { margin-top: 1rem; padding: 1rem; border-radius: 8px; }
-    .feedback.success { background: #e3f5e9; color: var(--success); }
-    .feedback.error { background: #fff0ec; color: var(--error); }
-    @media(max-width: 768px) { .challenge-shell { grid-template-columns: 1fr; } }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#143d2b">
+  <meta name="description" content="Jogo educativo multidisciplinar, acessível e inclusivo para o 6º ano - 2ª Sequência Didática do 3º trimestre do CEEFMTI Daniel Comboni.">
+  <title>A Saga dos Guardiões | 6º ano - 2ª SD · 3º trimestre</title>
+  <link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
+  <a class="skip-link" href="#main">Ir para o conteúdo principal</a>
 
-  <header class="topbar">
-    <a href="#" class="brand" onclick="showScreen('startScreen')">
-      <div class="brand-mark">G</div>
-      <span>Saga Guardiões · 6º Ano</span>
+  <header class="topbar" aria-label="Barra do jogo">
+    <a class="brand" href="#" id="brandHome" aria-label="Voltar ao início">
+      <span class="brand-mark" aria-hidden="true">◆</span>
+      <span><strong>Guardiões</strong><small>6º ano · 2ª SD · 3º tri.</small></span>
     </a>
-    <div class="status">
-      <span>Pontos: <strong id="scoreStatus">0</strong></span>
-      <span>Fases: <strong id="medalStatus">0/6</strong></span>
+
+    <div class="status" aria-label="Progresso">
+      <span title="Fase atual">🧭 <b id="phaseStatus">Início</b></span>
+      <span title="Pontuação">✨ <b id="scoreStatus">0</b></span>
+      <span title="Medalhas">🏅 <b id="medalStatus">0/6</b></span>
     </div>
+
+    <button class="icon-button" id="accessibilityButton" type="button" aria-expanded="false" aria-controls="accessibilityPanel">
+      <span aria-hidden="true">⚙</span> Acessibilidade
+    </button>
   </header>
 
-  <main>
-    <!-- Tela Inicial -->
-    <section class="screen active" id="startScreen">
-      <div class="hero-screen">
-        <h1>Saga Guardiões</h1>
-        <p class="lead">Aventura pedagógica interdisciplinar alinhada ao Currículo SEDU/ES.</p>
-        <input type="text" id="playerName" placeholder="Digite seu nome para jogar" maxlength="30"><br>
-        <button class="primary-button" onclick="startGame()">Iniciar Jornada →</button>
+  <aside class="accessibility-panel" id="accessibilityPanel" hidden aria-label="Opções de acessibilidade">
+    <div class="panel-heading">
+      <h2>Acessibilidade</h2>
+      <button class="close-button" id="closeAccessibility" type="button" aria-label="Fechar opções">×</button>
+    </div>
+    <div class="accessibility-grid">
+      <div class="control-group">
+        <span>Tamanho do texto</span>
+        <div class="button-row">
+          <button type="button" id="fontDecrease" aria-label="Diminuir texto">A−</button>
+          <button type="button" id="fontReset" aria-label="Tamanho padrão">A</button>
+          <button type="button" id="fontIncrease" aria-label="Aumentar texto">A+</button>
+        </div>
+      </div>
+      <label class="switch"><input type="checkbox" id="highContrast"> <span>Alto contraste</span></label>
+      <label class="switch"><input type="checkbox" id="simpleMode"> <span>Leitura simplificada</span></label>
+      <label class="switch"><input type="checkbox" id="reduceMotion"> <span>Reduzir movimentos</span></label>
+      <button type="button" id="readPage" class="wide-button">🔊 Ler esta tela</button>
+    </div>
+    <p class="panel-note">O jogo não usa cronômetro. Você pode aprender no seu tempo.</p>
+  </aside>
+  <div class="scrim" id="scrim" hidden></div>
+
+  <main id="main" tabindex="-1">
+    <section class="screen hero-screen active" id="startScreen" aria-labelledby="gameTitle">
+      <figure class="hero-art">
+        <img src="assets/real/es-cacique-tupinikim.jpg" alt="Fotografia real do cacique Tupinikim Jaguaretê, do Espírito Santo, em Brasília, 2007.">
+        <figcaption>Registro real: povo Tupinikim do Espírito Santo · Foto: Marcello Casal Jr./Agência Brasil</figcaption>
+      </figure>
+      <div class="hero-content">
+        <div class="institutional-banner" aria-label="Identificação institucional">
+          <span class="institution-mark institution-logos compact"><img src="assets/logo-ceefmti-daniel-comboni.png" alt="Logomarca do CEEFMTI Daniel Comboni"></span>
+          <span class="institution-text"><small>GOVERNO DO ESTADO DO ESPÍRITO SANTO</small><small>SECRETARIA DE ESTADO DA EDUCAÇÃO</small><small>SUPERINTENDÊNCIA REGIONAL DE EDUCAÇÃO</small><strong>CEEFMTI Daniel Comboni</strong><span class="institution-long-name">Centro Estadual de Ensino Fundamental e Médio em Tempo Integral Daniel Comboni</span><b>2ª SEQUÊNCIA DIDÁTICA · 3º TRIMESTRE · 6º ANO</b></span>
+          <span class="institution-mark institution-logos compact"><img src="assets/selo-escola-do-futuro.png" alt="Selo de certificação Escola do Futuro"></span>
+        </div>
+        <p class="eyebrow">Uma aventura de conhecimento e cuidado</p>
+        <h1 id="gameTitle">Saga dos Guardiões: Jornada dos Seis Saberes</h1>
+        <p class="lead">Seis missões conectam Língua Portuguesa, História, Ciências, Geografia, Matemática e Computação. Cada fase reúne fontes, jogos, investigação e decisões.</p>
+
+        <div class="mission-card">
+          <span class="mission-icon" aria-hidden="true">🛡️</span>
+          <div>
+            <h2>Sua missão</h2>
+            <p>Ouça as comunidades, investigue evidências, resolva desafios e escolha ações que protejam as pessoas, a memória e a natureza.</p>
+          </div>
+        </div>
+
+        <div class="knowledge-charms decorative" aria-label="Seis áreas de conhecimento da jornada">
+          <span title="Língua Portuguesa">📰</span>
+          <span title="História">🏺</span>
+          <span title="Ciências">🌍</span>
+          <span title="Geografia">🌱</span>
+          <span title="Matemática">📐</span>
+          <span title="Computação">💧</span>
+        </div>
+
+        <label class="name-field" for="playerName">Como deseja aparecer no certificado?</label>
+        <input id="playerName" type="text" maxlength="45" autocomplete="name" placeholder="Digite seu nome" aria-describedby="nameHelp">
+        <small id="nameHelp">Você também pode começar sem preencher e informar o nome no final.</small>
+
+        <button class="primary-button large" id="startButton" type="button">Começar jornada <span aria-hidden="true">→</span></button>
+        <p class="keyboard-tip">⌨️ Use Tab para navegar e Enter ou Espaço para escolher.</p>
       </div>
     </section>
 
-    <!-- Mapa -->
-    <section class="screen" id="mapScreen">
-      <h2>Mapa de Missões</h2>
-      <p id="progressText">0 de 6 fases concluídas</p>
-      <div class="phase-grid" id="phaseGrid"></div>
+    <section class="screen" id="storyScreen" aria-labelledby="storyTitle">
+      <div class="story-layout">
+        <div class="guide-card dandara" aria-label="Fotografia real de referência do povo Tupinikim no Espírito Santo">
+          <img src="assets/real/es-cacique-tupinikim.jpg" alt="Cacique Tupinikim Jaguaretê, do Espírito Santo, em Brasília, 2007.">
+          <span>Fonte indígena capixaba</span>
+        </div>
+        <article class="dialogue-card">
+          <p class="eyebrow">O chamado</p>
+          <h2 id="storyTitle">O território precisa de você</h2>
+          <p>“Sua missão é investigar informações reais, reconhecer diferentes culturas sem generalizar, testar modelos e tomar decisões responsáveis.”</p>
+          <p>“Cada desafio concluído registra uma nova evidência de aprendizagem. Observe, pense, teste ideias e tente novamente quando precisar.”</p>
+          <div class="learning-note"><span aria-hidden="true">🌱</span><p><strong>Aprender também é revisar.</strong> Os erros mostram caminhos e não retiram sua chance de avançar.</p></div>
+          <button class="primary-button" id="openMapButton" type="button">Abrir mapa da jornada</button>
+        </article>
+        <div class="guide-card potira" aria-label="Fotografia documental de comunidade quilombola usada como referência">
+          <img src="assets/comunidade-quilombola-antonio-cruz.jpg" alt="Participantes de uma comunidade quilombola em encontro público; fotografia documental de referência.">
+          <span>Memória quilombola</span>
+        </div>
+      </div>
     </section>
 
-    <!-- Jogo -->
-    <section class="screen" id="challengeScreen">
-      <button onclick="showScreen('mapScreen')" style="margin-bottom: 1rem;">← Voltar ao Mapa</button>
+    <section class="screen" id="mapScreen" aria-labelledby="mapTitle">
+      <header class="section-heading">
+        <p class="eyebrow">Mapa da jornada interdisciplinar</p>
+        <h2 id="mapTitle">Trilha dos seis saberes</h2>
+        <p>As fases são liberadas em sequência. Conclua cada missão para reunir seis evidências de aprendizagem.</p>
+      </header>
+      <div class="progress-wrap" aria-label="Progresso total">
+        <div class="progress-track"><span id="progressBar"></span></div>
+        <span id="progressText">0 de 6 fases concluídas</span>
+      </div>
+      <div class="phase-grid" id="phaseGrid"></div>
+      <button class="secondary-button" id="resetButton" type="button">Recomeçar jornada</button>
+    </section>
+
+    <section class="screen" id="challengeScreen" aria-labelledby="challengeTitle">
+      <button class="back-button" id="backToMap" type="button">← Voltar ao mapa</button>
       <div class="challenge-shell">
         <aside class="phase-brief" id="phaseBrief"></aside>
         <div class="challenge-main">
+          <div class="challenge-progress" id="challengeProgress"></div>
           <div id="challengeContent"></div>
-          <div class="feedback" id="feedback" hidden></div>
-          <div style="margin-top: 1.5rem; text-align: right;" id="actionArea">
-            <button class="primary-button" onclick="checkAnswer()">Confirmar Resposta</button>
-          </div>
+          <div class="feedback" id="feedback" role="status" aria-live="polite" hidden></div>
+          <div class="action-row" id="challengeActions"></div>
         </div>
       </div>
     </section>
 
-    <!-- Final -->
-    <section class="screen" id="finalScreen">
-      <div style="text-align: center; padding: 2rem;">
-        <h2>🎉 Parabéns, Guardião!</h2>
-        <p>Você completou todas as missões com sucesso!</p>
-        <div style="border: 4px solid var(--gold); padding: 2rem; background: #fff; border-radius: 12px; max-width: 500px; margin: 2rem auto;">
-          <small>CERTIFICADO DE CONCLUSÃO</small>
-          <h3 id="certName" style="font-size: 2rem; margin: .5rem 0;"></h3>
-          <p>Pontuação Final: <strong id="certScore">0</strong> pontos</p>
+    <section class="screen" id="phaseCompleteScreen" aria-labelledby="phaseCompleteTitle">
+      <div class="completion-card">
+        <div class="medal-large" aria-hidden="true">🏅</div>
+        <p class="eyebrow">Evidência conquistada</p>
+        <h2 id="phaseCompleteTitle">Fase concluída!</h2>
+        <p id="phaseCompleteMessage"></p>
+        <div class="score-summary">
+          <span><small>Pontos nesta fase</small><strong id="phasePoints">0</strong></span>
+          <span><small>Pontuação total</small><strong id="totalPoints">0</strong></span>
         </div>
-        <button class="primary-button" onclick="location.reload()">Jogar Novamente</button>
+        <div class="mastery-box" id="masteryBox"></div>
+        <button class="primary-button" id="continueButton" type="button">Continuar jornada</button>
+      </div>
+    </section>
+
+    <section class="screen" id="finalScreen" aria-labelledby="finalTitle">
+      <div class="final-wrap">
+        <div class="shield" aria-hidden="true"><span>◆</span></div>
+        <p class="eyebrow">Missão cumprida</p>
+        <h2 id="finalTitle">A Jornada dos Seis Saberes foi concluída!</h2>
+        <p>Você reuniu conhecimentos para interpretar informações, compreender sociedades, investigar a Terra, cuidar da natureza, usar proporções e organizar algoritmos.</p>
+        <div class="final-stats" id="finalStats"></div>
+
+        <article class="certificate" id="certificate" aria-labelledby="certificateTitle">
+          <div class="certificate-border">
+            <div class="certificate-institution">
+              <span class="institution-logos certificate-logos">
+                <img src="assets/logo-ceefmti-daniel-comboni.png" alt="Logomarca do CEEFMTI Daniel Comboni">
+                <img src="assets/selo-escola-do-futuro.png" alt="Selo de certificação Escola do Futuro">
+              </span>
+              <span><strong>CEEFMTI Daniel Comboni</strong><small>6º ano · 2ª Sequência Didática · 3º trimestre</small></span>
+            </div>
+              <p class="certificate-kicker">Jornada Interdisciplinar · 6º ano · 2ª SD · 3º trimestre</p>
+            <h3 id="certificateTitle">Certificado da Jornada dos Seis Saberes</h3>
+            <p>Certificamos que</p>
+            <p class="certificate-name" id="certificateName">Jovem Guardião</p>
+            <p>concluiu a Jornada dos Seis Saberes, demonstrando compromisso com a aprendizagem, a diversidade cultural e o cuidado responsável com o território.</p>
+            <div class="certificate-medals" aria-label="Seis medalhas conquistadas">◆ ◆ ◆ ◆ ◆ ◆</div>
+            <div class="certificate-signature">
+              <span>Professor Mozahinter Vieira</span>
+              <small>Professor responsável</small>
+            </div>
+            <div class="certificate-footer">
+              <span><b id="certificateScore">0</b> pontos</span>
+              <span id="certificateDate"></span>
+            </div>
+          </div>
+        </article>
+
+        <div class="final-actions">
+          <button class="primary-button" id="printCertificate" type="button">🖨️ Imprimir ou salvar em PDF</button>
+          <button class="secondary-button" id="reviewJourney" type="button">Rever mapa e desempenho</button>
+        </div>
       </div>
     </section>
   </main>
 
-  <script>
-    const PHASES = [
-      { id:'lp', title:'Vozes do Território', subject:'Língua Portuguesa', color:'#315a8a', skill:'EF69LP03', context:'REPORTAGEM: Em 2026, foram destinados R$ 53 milhões para rede de água em Dourados (MS), beneficiando 20 mil indígenas.', q:'Qual é o fato central da reportagem?', opts:['Recursos destinados para expansão de água.','Obras totalmente concluídas.','Problema de energia elétrica.','Preferência por grandes construções.'], correct:0, exp:'O fato central é o anúncio dos recursos para abastecimento de água.' },
-      { id:'his', title:'Rotas de Mali', subject:'História', color:'#b95038', skill:'EF06HI14/ES', context:'No século XIV, Tombuctu reunia comércio de sal, ouro, livros e conhecimento entre rotas do Saara.', q:'O que essas redes demonstram?', opts:['Isolamento da região africana.','Mali participava de redes econômicas e culturais amplas.','Ausência de centros urbanos.','Apenas trocas locais sem impacto.'], correct:1, exp:'Mali era um polo articulado de comércio, cultura e saberes.' },
-      { id:'cie', title:'Rede do Cuidado', subject:'Ciências', color:'#d88b28', skill:'EF06CI10/ES', context:'Substâncias depressoras diminuem a atividade do sistema nervoso central.', q:'Qual efeito caracteriza essa categoria?', opts:['Aumento extremo do estado de alerta.','Redução de reflexos e respostas mais lentas.','Alterações visuais intensas.','Sem impacto no organismo.'], correct:1, exp:'Substâncias depressoras reduzem a velocidade da resposta nervosa.' },
-      { id:'geo', title:'Guardiões da Nascente', subject:'Geografia', color:'#23769f', skill:'EF06GE11/ES', context:'A vegetação ciliar protege o solo da erosão e garante a infiltração de água da chuva.', q:'Qual ação favorece a proteção de uma nascente?', opts:['Retirar toda a cobertura vegetal.','Replantar espécies nativas na margem.','Asfaltar o entorno do rio.','Permitir pisoteio constante.'], correct:1, exp:'Plantas nativas retêm o solo e protegem a nascente.' },
-      { id:'mat', title:'Mapa em Escala', subject:'Matemática', color:'#6f4a8e', skill:'EF06MA21', context:'Uma área de 4x3 quadrados na malha quadriculada será ampliada com fator 2.', q:'Quais serão as novas medidas?', opts:['6 x 5','8 x 6','8 x 3','4 x 6'], correct:1, exp:'Multiplica-se ambas as dimensões por 2: 4x2=8 e 3x2=6.' },
-      { id:'comp', title:'Rega Inteligente', subject:'Computação', color:'#347563', skill:'EF06CO02', context:'O sensor indica "solo úmido". O programa diz: SE solo seco, ENTÃO irrigar.', q:'Qual instrução o algoritmo executará?', opts:['Irrigar por 5 minutos.','Avançar sem irrigar.','Desligar o sistema.','Reiniciar a leitura.'], correct:1, exp:'Como a condição "seco" é falsa, o algoritmo economiza água e avança.' }
-    ];
-
-    let state = { player: '', score: 0, current: 0, completed: [], selected: null };
-
-    function showScreen(id) {
-      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-    }
-
-    function startGame() {
-      state.player = document.getElementById('playerName').value.trim() || 'Guardião';
-      renderMap();
-      showScreen('mapScreen');
-    }
-
-    function renderMap() {
-      const grid = document.getElementById('phaseGrid');
-      grid.innerHTML = PHASES.map((p, i) => {
-        const done = state.completed.includes(i);
-        const unlocked = i === 0 || state.completed.includes(i - 1);
-        return `
-          <div class="phase-card" style="--phase-color:${p.color}">
-            <small>FASE ${i+1}</small>
-            <h3>${p.title}</h3>
-            <p><strong>${p.subject}</strong> (${p.skill})</p>
-            <button class="primary-button" style="margin-top:1rem; width:100%" ${unlocked ? '' : 'disabled'} onclick="playPhase(${i})">
-              ${done ? '✓ Refazer' : unlocked ? 'Jogar →' : '🔒 Bloqueado'}
-            </button>
-          </div>
-        `;
-      }).join('');
-      document.getElementById('progressText').textContent = `${state.completed.length} de 6 fases concluídas`;
-      document.getElementById('scoreStatus').textContent = state.score;
-      document.getElementById('medalStatus').textContent = `${state.completed.length}/6`;
-    }
-
-    function playPhase(idx) {
-      state.current = idx;
-      state.selected = null;
-      const p = PHASES[idx];
-      document.getElementById('phaseBrief').innerHTML = `
-        <h2>${p.title}</h2>
-        <p><strong>${p.subject}</strong></p>
-        <small>Habilidade: ${p.skill}</small>
-      `;
-      document.getElementById('challengeContent').innerHTML = `
-        <div class="context-box">${p.context}</div>
-        <h3>${p.q}</h3>
-        <div class="options">
-          ${p.opts.map((opt, i) => `
-            <button class="option" onclick="selectOpt(${i}, this)">
-              <strong>${String.fromCharCode(65+i)}</strong>. ${opt}
-            </button>
-          `).join('')}
-        </div>
-      `;
-      document.getElementById('feedback').hidden = true;
-      document.getElementById('actionArea').innerHTML = `<button class="primary-button" onclick="checkAnswer()">Confirmar Resposta</button>`;
-      showScreen('challengeScreen');
-    }
-
-    function selectOpt(i, btn) {
-      state.selected = i;
-      document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
-      btn.classList.add('selected');
-    }
-
-    function checkAnswer() {
-      if (state.selected === null) return alert('Selecione uma opção!');
-      const p = PHASES[state.current];
-      const fb = document.getElementById('feedback');
-      fb.hidden = false;
-
-      if (state.selected === p.correct) {
-        fb.className = 'feedback success';
-        fb.innerHTML = `<strong>Correto!</strong><p>${p.exp}</p>`;
-        if (!state.completed.includes(state.current)) {
-          state.score += 100;
-          state.completed.push(state.current);
-        }
-        document.getElementById('actionArea').innerHTML = `<button class="primary-button" onclick="nextStep()">Avançar →</button>`;
-      } else {
-        fb.className = 'feedback error';
-        fb.innerHTML = `<strong>Ainda não.</strong><p>${p.exp}</p>`;
-      }
-    }
-
-    function nextStep() {
-      if (state.completed.length === PHASES.length) {
-        document.getElementById('certName').textContent = state.player;
-        document.getElementById('certScore').textContent = state.score;
-        showScreen('finalScreen');
-      } else {
-        renderMap();
-        showScreen('mapScreen');
-      }
-    }
-  </script>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <noscript>Este jogo precisa do JavaScript ativado para funcionar.</noscript>
+  <script src="script.js?v=9"></script>
 </body>
 </html>

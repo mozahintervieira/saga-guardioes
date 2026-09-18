@@ -1,0 +1,84 @@
+SAGA DOS GUARDIÕES: JORNADA DOS SEIS SABERES
+6º ano - 2ª Sequência Didática
+CEEFMTI Daniel Comboni
+
+COMO ABRIR
+1. Mantenha index.html, style.css e script.js na mesma pasta.
+2. Abra index.html no Google Chrome ou Microsoft Edge.
+3. O progresso fica salvo somente no navegador e no computador utilizados.
+
+CERTIFICADO
+- O estudante informa o nome na tela inicial.
+- Após concluir as seis fases, use "Imprimir ou salvar em PDF".
+- A impressão está configurada para A4 em orientação paisagem.
+- O certificado identifica o Professor Mozahinter Vieira como professor responsável.
+
+ACESSIBILIDADE
+- Alto contraste.
+- Ajuste do tamanho do texto.
+- Áudio local da apresentação de Araci e leitura em voz alta, quando disponível no navegador.
+- Apoios visuais de Comunicação Aumentativa e Alternativa (CAA).
+- Audiodescrição textual das fotografias.
+- Modo de leitura simplificada.
+- Redução de movimentos.
+- Navegação por teclado.
+- Não há cronômetro.
+
+PRIMEIRA FASE — FONTES REAIS E JOGOS
+- Reportagem-base: Agência Brasil, “Verba para super poço em reserva indígena está garantida, diz ministro”, abril de 2026.
+- Mapeamento participativo: Museu Paraense Emílio Goeldi, “Mapeamento participativo e autogerenciamento do território entre os Kuikuro do Alto Xingu”.
+- Referência cultural do Jogo da Onça/Adugo: Museu Nacional dos Povos Indígenas e Secretaria Municipal de Educação de São Paulo.
+- Araci é uma personagem mediadora fictícia. Sua apresentação é uma dramatização pedagógica baseada nas fontes citadas; não é depoimento de uma pessoa indígena real.
+- O desafio digital do Adugo é uma introdução de três capturas, não uma reprodução integral da partida tradicional.
+
+CRÉDITOS DAS IMAGENS DA PRIMEIRA FASE
+- Aldeia Indígena Urbana Marçal de Souza, Campo Grande (MS): Jerônimo Freitas Rodrigues de Carvalho/Wikimedia Commons, CC BY-SA 3.0.
+- Mapa etno-histórico do Brasil: Leone Melo/Wikimedia Commons.
+- Paisagem em Porto Seguro (BA): Amanda Coutinho/Wikimedia Commons, CC BY 2.0.
+- Agenda Social Quilombola: Antônio Cruz/Agência Brasil, via Wikimedia Commons, CC BY 3.0 BR.
+
+FONTES, FOTOGRAFIAS E MATERIAIS AUDIOVISUAIS POR FASE
+- Língua Portuguesa: vídeo da aldeia Guarani de Maricá, ONU Brasil/Wikimedia Commons.
+- História: patrimônio de Tombuctu/UNESCO; imagem ASTER da NASA/JPL; Mesquita de Sankore (upyernoz, CC BY 2.0); conservação de manuscrito (Mark Fischer, CC BY-SA 2.0); caravana no Mali (Jeanne Menjoulet, CC BY 2.0).
+- Ciências: NASA Earth Facts; diagramas científicos NASA/USGS; animação das camadas internas da Terra, Wikimedia Commons, CC BY-SA 4.0.
+- Geografia: mata ciliar próxima a uma nascente (Carlos Peixotto, CC BY-SA 4.0); nascente do Tietê (Ro Pimentel); erosão em Piracicaba (Ana Paula Hirama, CC BY-SA 2.0); vídeo do simulador de chuvas da Secretaria de Meio Ambiente de São Paulo.
+- Matemática: capítulo “Noções básicas de Cartografia” e atividade cartográfica do IBGE; mapa de relevo do Brasil (Alexrk2, CC BY-SA 3.0); mapa topográfico do USGS, domínio público.
+- Computação: BNCC Computação/MEC; sensor de umidade (Sealman, CC BY-SA 4.0); irrigação por gotejamento do USDA, domínio público; episódio educativo da SME Goiânia.
+
+A animação de Ciências foi incorporada ao pacote e funciona sem internet. Os demais vídeos e páginas de referência são abertos por links externos. A escola precisa de internet para acessá-los; eles não são tratados como se fossem gravações feitas pela personagem Araci.
+- Na Fase 1, o vídeo Guarani é exibido no próprio painel quando houver internet; o link de origem continua disponível para conferência. O arquivo é um registro real da ONU Brasil/Wikimedia Commons, não uma animação criada para o jogo.
+
+REVISÃO VISUAL E PEDAGÓGICA
+- Cada disciplina possui roteiro explícito para duas aulas de 50 minutos, texto-base específico, investigação com fonte real e identidade visual relacionada ao objeto de conhecimento.
+- As fases 2 a 6 começam com quatro estações de investigação; fotografias e documentos trazem audiodescrição, legenda, autoria/licença, apoio CAA e acesso à fonte.
+- Os simuladores de Geografia, Matemática e Computação usam painéis gráficos próprios e imagens reais no cenário, mantendo contraste e leitura por teclado.
+- O mapa da jornada usa capas visuais diferentes para Língua Portuguesa, História, Ciências, Geografia, Matemática e Computação.
+- O jogo da memória foi redesenhado como Arquivo das Pistas, com cartões maiores, cores por conceito, explicações curtas, apoio CAA e painel de progresso.
+- Todas as 12 faces do jogo da memória usam fotografias ou documentos reais. Guarani Ñandeva, Guarani Kaiowá e Terena têm pares separados; nenhuma imagem fictícia ou símbolo genérico representa esses povos.
+- As fotografias do jogo informam local/data quando disponíveis, autoria/licença e link de origem. Água, mapa e reportagem são identificados como documentos/imagens de referência; quando a fotografia não é da Reserva de Dourados, isso é declarado na legenda.
+- Personagens ou territórios fictícios não são apresentados como povos, aldeias ou depoimentos reais. Araci permanece identificada como mediadora fictícia.
+- As capas das seis fases foram trocadas por fotografias, mapas ou diagramas científicos de fontes reais; não são imagens geradas por inteligência artificial.
+- A Fase 1 agora apresenta conexão explícita com os povos Tupinikim e Guarani Mbyá de Aracruz (ES) e com o Quilombo Monte Alegre (Cachoeiro de Itapemirim/ES), com links para registros públicos e vídeos culturais capixabas.
+- A ampliação desta versão acrescenta jogos em todas as fases: ordenar etapas de investigação, depurar algoritmos, planejar rotas, interpretar fontes e tomar decisões com seleção de cartas.
+- A Matemática foi ampliada com situações do cotidiano escolar: distância real e representada na planta, escala de rotas acessíveis, redução/ampliação de hortas e conferência de medidas.
+- O ERER atravessa as seis fases: autoria e voz em reportagens; protagonismos africanos, afro-brasileiros, indígenas e quilombolas na História; conhecimentos e contexto em Ciências; cartografia crítica e direitos territoriais em Geografia; acesso e representação em Matemática e Computação.
+- As atividades de ERER não tratam povos indígenas, comunidades quilombolas ou populações negras como um grupo único. Cada proposta exige nomeação, fonte, contexto, participação e cuidado com estereótipos.
+- Fotografia capixaba: cacique Tupinikim Jaguaretê, Espírito Santo, 2007 — Marcello Casal Jr./Agência Brasil, via Wikimedia Commons, CC BY 3.0.
+- Vídeos capixabas: projeto Caxambu Santa Cruz, Quilombo Monte Alegre, Mapa Cultural ES; voz indígena: entrevista de Danilo Tupinikim na Rádio Nacional/EBC.
+- A voz de Araci continua sendo uma mediação pedagógica sintetizada e identificada como tal. O jogo oferece, em link separado, uma entrevista pública com Danilo Tupinikim, indígena nascido no Espírito Santo. Nenhuma voz foi imitada ou atribuída a uma pessoa indígena sem fonte e autorização.
+
+FIDELIDADE CURRICULAR — SEDU/ES 2026
+- A referência utilizada é a página oficial “Orientações Curriculares 2026”, da Gerência de Currículo da Educação Básica/SEDU-ES.
+- O jogo apresenta, em cada fase, o código, o texto da habilidade, o objeto de conhecimento com redação oficial e um link direto para o documento curricular correspondente.
+- Língua Portuguesa: EF69LP03 — Estratégia de leitura: apreender os sentidos globais do texto.
+- História: EF06HI14/ES — A passagem do mundo antigo para o mundo medieval; a fragmentação do poder político na Idade Média.
+- Ciências: EF06CI10/ES — Estrutura da Terra. O código EF06CI11/ES, usado em versão anterior, foi corrigido porque corresponde a tipos de rochas e formação de fósseis.
+- Geografia: EF06GE11/ES — Biodiversidade e ciclo hidrológico; biomas: impactos ambientais.
+- Matemática: EF06MA21 — Construção de figuras semelhantes: ampliação e redução de figuras planas em malhas quadriculadas.
+- Computação: EF06CO02 — Programação: linguagem de programação. O jogo utiliza uma linguagem visual por blocos com sequência, repetição e seleção.
+- As adaptações AEE/DUA alteram a rota de acesso, a mediação e os apoios, mas não substituem nem reduzem a habilidade curricular.
+
+IDENTIDADE VISUAL
+- Logomarca do CEEFMTI Daniel Comboni fornecida pelo Professor Mozahinter Vieira.
+- Selo de certificação Escola do Futuro fornecido pelo Professor Mozahinter Vieira.
+- Os dois arquivos ficam na pasta "assets" e devem permanecer junto ao jogo.
